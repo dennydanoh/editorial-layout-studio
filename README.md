@@ -1,6 +1,6 @@
-# Xiaohongshu Editorial Studio
+# Editorial Layout Studio
 
-一个可直接公开放到 GitHub 的 skill 仓库，目标是帮助 Codex / Claude 稳定生成、复刻或升级“小红书图文生成网页”。
+一个可直接公开放到 GitHub 的 skill 仓库，目标是帮助 Codex / Claude 稳定生成、复刻或升级通用的图文排版网页。
 
 这个仓库同时提供两部分内容：
 
@@ -10,7 +10,7 @@
 ## Repo Structure
 
 ```text
-xiaohongshu-editorial-studio/
+editorial-layout-studio/
 ├── SKILL.md
 ├── references/
 │   └── product-spec.md
@@ -26,7 +26,7 @@ xiaohongshu-editorial-studio/
 
 适合这些请求：
 
-- 做“小红书图文生成器”
+- 做“图文排版工具”“内容卡片生成器”“文章转图片网页”
 - 把长文章自动分页成 3:4 竖版卡片
 - 生成封面页和正文分页
 - 支持背景色、背景图、透明度、预览和 PNG 导出
@@ -38,7 +38,7 @@ xiaohongshu-editorial-studio/
 
 ```bash
 python3 ~/.codex/skills/.system/skill-installer/scripts/install-skill-from-github.py \
-  --repo <your-account>/xiaohongshu-editorial-studio \
+  --repo <your-account>/editorial-layout-studio \
   --path .
 ```
 
@@ -88,15 +88,15 @@ python3 -m http.server 8000
 ## Example Prompts
 
 ```text
-用 xiaohongshu-editorial-studio 帮我做一个小红书图文生成网页，输入标题和文章后自动分页并下载 PNG。
+用 editorial-layout-studio 帮我做一个图文排版网页，输入标题和文章后自动分页并下载 PNG。
 ```
 
 ```text
-用 xiaohongshu-editorial-studio 把我现在这个图文工具改成支持背景图上传、透明度调节和批量下载。
+用 editorial-layout-studio 把我现在这个图文工具改成支持背景图上传、透明度调节和批量下载。
 ```
 
 ```text
-用 xiaohongshu-editorial-studio 做一个可以部署到 GitHub Pages 的 Rednote carousel generator。
+用 editorial-layout-studio 做一个可以部署到 GitHub Pages 的 article-to-card generator。
 ```
 
 ## Reference

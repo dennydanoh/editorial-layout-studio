@@ -1,15 +1,15 @@
 ---
-name: xiaohongshu-editorial-studio
-description: Use this skill whenever the user wants to build, clone, modify, or polish a Xiaohongshu-style carousel post generator, Rednote image-post editor, article-to-image web tool, or any static page that turns long-form text into paginated 3:4 social images with cover generation, body pagination, background customization, preview, and PNG export. Trigger even if the user does not say "skill" explicitly but asks for "小红书图文生成", "文章转小红书图片", "图文排版网页", "Rednote carousel generator", "封面+正文分页导出", or wants a browser-only publishing tool that can be deployed publicly on GitHub Pages, Vercel, or Netlify.
+name: editorial-layout-studio
+description: Use this skill whenever the user wants to build, clone, modify, or polish a general-purpose editorial layout tool, article-to-image web app, carousel post generator, social card composer, or any static page that turns long-form text into paginated visual cards with cover generation, body pagination, background customization, preview, and PNG export. Trigger even if the user does not say "skill" explicitly but asks for "图文排版网页", "文章转图片工具", "内容卡片生成器", "社媒图文生成", "封面+正文分页导出", "小红书图文生成", or wants a browser-only publishing tool that can be deployed publicly on GitHub Pages, Vercel, or Netlify.
 ---
 
-# Xiaohongshu Editorial Studio
+# Editorial Layout Studio
 
 ## Overview
 
-这个 skill 用来交付一类很具体、很实用的网页工具：
+这个 skill 用来交付一类很具体、很实用的图文排版网页工具：
 
-- 把一篇长文拆成适合小红书图文发布的多张 3:4 竖版图片
+- 把一篇长文拆成适合社媒发布、知识卡片、内容海报或图文轮播的多张视觉卡片
 - 自动生成封面页和正文分页
 - 支持背景色、背景图、透明度、预览和逐张/批量导出 PNG
 - 尽量保持纯前端、本地渲染、可直接公开部署
@@ -18,13 +18,13 @@ description: Use this skill whenever the user wants to build, clone, modify, or 
 
 ## When To Use
 
-- 用户要做“小红书图文生成器”“图文卡片生成网页”“文章转图片工具”。
-- 用户要把文章、笔记、教程、口播稿排成一组适合社媒发布的长图或卡片。
+- 用户要做“图文排版工具”“内容卡片生成网页”“文章转图片工具”“社媒图文生成器”。
+- 用户要把文章、笔记、教程、口播稿排成一组适合社媒发布、内容运营、知识分发或品牌展示的卡片。
 - 用户明确要求静态网页、浏览器本地处理、可上传 GitHub 公开使用。
-- 用户想复刻、升级或二次封装类似 `https://www.hezouyukuai.top/` 这一类工具。
+- 用户想复刻、升级或二次封装类似 `https://www.hezouyukuai.top/` 这类“文章转视觉卡片”的工具。
 - 用户要补功能，比如背景图上传、封面文案限制、自动分页、导出 PNG、保存输入状态。
 
-如果用户只是要写小红书文案，而不是做网页工具，不要触发本 skill。
+如果用户只是要写文案，而不是做网页工具，不要触发本 skill。
 
 ## Default Deliverable
 
@@ -109,7 +109,7 @@ description: Use this skill whenever the user wants to build, clone, modify, or 
 - 输入标题、导语、正文
 - 根据正文自动拆分段落
 - 自动生成 1 张封面 + 多张正文
-- 输出比例为 3:4 竖版，适配小红书图文
+- 输出比例默认为 3:4 竖版，适合多数图文卡片和轮播场景
 - 支持背景纯色和背景图两种模式
 - 支持透明度调节
 - 页面内预览所有卡片
@@ -136,14 +136,13 @@ description: Use this skill whenever the user wants to build, clone, modify, or 
 ## Example Requests
 
 **Example 1**
-Input: 帮我做一个小红书图文生成网页，输入标题和文章后能自动分页并下载 PNG。
+Input: 帮我做一个图文排版网页，输入标题和文章后能自动分页并下载 PNG。
 Output: 触发本 skill，生成一个可部署的静态前端项目方案或直接实现代码。
 
 **Example 2**
-Input: 把这个小红书图文网页改成支持背景图上传和透明度调节。
+Input: 把这个图文卡片工具改成支持背景图上传和透明度调节。
 Output: 触发本 skill，围绕现有工具补齐参数区、渲染逻辑和导出一致性。
 
 **Example 3**
-Input: 我想做一个能公开放到 GitHub 上的 Rednote carousel generator。
+Input: 我想做一个能公开放到 GitHub 上的 article-to-card generator。
 Output: 触发本 skill，优先交付适合公开部署的静态网页实现和说明文档。
-
