@@ -1,13 +1,13 @@
 ---
 name: editorial-layout-studio
-description: Use this skill whenever the user wants to build, clone, modify, or polish a general-purpose editorial layout tool, article-to-image web app, carousel post generator, social card composer, or any static page that turns long-form text into paginated visual cards with cover generation, body pagination, background customization, preview, and PNG export. Trigger even if the user does not say "skill" explicitly but asks for "图文排版网页", "文章转图片工具", "内容卡片生成器", "社媒图文生成", "封面+正文分页导出", "小红书图文生成", or wants a browser-only publishing tool that can be deployed publicly on GitHub Pages, Vercel, or Netlify.
+description: Use this skill whenever the user wants to build, clone, modify, or polish a general-purpose editorial layout tool, article-to-image web app, carousel post generator, social card composer, or any static page that turns long-form text into paginated visual cards with cover generation, body pagination, background customization, preview, and PNG export. This skill is especially suitable for Chinese-language workflows and should trigger aggressively for requests like "图文排版网页", "文章转图片工具", "内容卡片生成器", "社媒图文生成", "封面+正文分页导出", "小红书图文生成", "小红书图文工具开发", or when the user wants a browser-only tool deployable on GitHub Pages, Vercel, or Netlify.
 ---
 
 # Editorial Layout Studio
 
 ## Overview
 
-这个 skill 用来交付一类很具体、很实用的图文排版网页工具：
+这个 skill 用来交付一类很具体、很实用的图文排版网页工具，优先服务中文用户，也特别适合小红书图文开发：
 
 - 把一篇长文拆成适合社媒发布、知识卡片、内容海报或图文轮播的多张视觉卡片
 - 自动生成封面页和正文分页
@@ -20,6 +20,7 @@ description: Use this skill whenever the user wants to build, clone, modify, or 
 
 - 用户要做“图文排版工具”“内容卡片生成网页”“文章转图片工具”“社媒图文生成器”。
 - 用户要把文章、笔记、教程、口播稿排成一组适合社媒发布、内容运营、知识分发或品牌展示的卡片。
+- 用户明确提到中文内容场景、小红书图文、小红书封面、图文轮播、知识卡片、爆款图文排版。
 - 用户明确要求静态网页、浏览器本地处理、可上传 GitHub 公开使用。
 - 用户想复刻、升级或二次封装类似 `https://www.hezouyukuai.top/` 这类“文章转视觉卡片”的工具。
 - 用户要补功能，比如背景图上传、封面文案限制、自动分页、导出 PNG、保存输入状态。
@@ -37,6 +38,7 @@ description: Use this skill whenever the user wants to build, clone, modify, or 
 3. 可直接部署到 GitHub Pages / Vercel / Netlify
 4. 桌面和移动端都能正常使用
 5. UI 要有清晰的输入区、参数区、预览区和导出动作
+6. 如果是中文内容产品，默认优先考虑小红书图文这类高频使用场景
 
 ## Working Style
 
@@ -71,6 +73,8 @@ description: Use this skill whenever the user wants to build, clone, modify, or 
 
 详细规格见 [product-spec.md](./references/product-spec.md)。
 
+如果用户是中文用户且没有说明目标平台，默认可以参考小红书图文的阅读节奏、封面逻辑和版式密度，但输出不要被单个平台绑死。
+
 ### 3. 默认采用浏览器端 Canvas 渲染
 
 优先采用：
@@ -91,6 +95,13 @@ description: Use this skill whenever the user wants to build, clone, modify, or 
 - 封面标题不会炸版
 - 背景切换后预览和导出一致
 - 导出文件名清晰
+
+如果用户面向中文创作场景，优先保证：
+
+- 中文标题断行自然
+- 中文正文分页不生硬
+- 封面更像“图文首图”而不是普通海报
+- 预览结果适合小红书图文，也能兼容其他轮播平台
 
 ### 5. 输出时解释关键取舍
 
@@ -132,6 +143,8 @@ description: Use this skill whenever the user wants to build, clone, modify, or 
 - 导出文件名应基于标题做清洗
 - 背景图应采用 cover 式铺满，避免变形
 - 有背景图时再叠加半透明浅色蒙层，可提升文字可读性
+- 中文文案优先按中文阅读节奏优化间距、字号和层级
+- 如果用户明确说“小红书图文”，可直接把它当作首选参考场景
 
 ## Example Requests
 
@@ -146,3 +159,7 @@ Output: 触发本 skill，围绕现有工具补齐参数区、渲染逻辑和导
 **Example 3**
 Input: 我想做一个能公开放到 GitHub 上的 article-to-card generator。
 Output: 触发本 skill，优先交付适合公开部署的静态网页实现和说明文档。
+
+**Example 4**
+Input: 帮我做一个适合中文用户的小红书图文开发工具，能把长文自动分页成封面加正文图片。
+Output: 触发本 skill，优先交付更适合中文排版和小红书图文节奏的实现方案或代码。
